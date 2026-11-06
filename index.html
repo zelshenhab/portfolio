@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zeyad Elshenhab — Flutter Developer</title>
+  <meta name="description" content="Zeyad Elshenhab — Flutter developer building production-ready cross-platform mobile apps. Native Kotlin &amp; Swift, real-time chat, clean architecture, BLoC. Apps live on App Store, Google Play and RuStore." />
+  <meta property="og:title" content="Zeyad Elshenhab — Flutter Developer" />
+  <meta property="og:description" content="Cross-platform mobile apps with Flutter. Apps live on App Store, Google Play and RuStore." />
+  <meta property="og:image" content="assets/adam/1.jpg" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2338d6ff'/><stop offset='1' stop-color='%237b61ff'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='%2307080d'/><text x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='28' text-anchor='middle' fill='url(%23g)'>ZE</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+    <div class="noise"></div>
+  </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="logo" aria-label="Zeyad Elshenhab — home">
+      <span class="logo-mark">ZE</span>
+      <span class="logo-name">Zeyad Elshenhab</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <span class="lang-thumb" aria-hidden="true"></span>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a href="assets/Zeyad_Elshenhab_CV.pdf" class="btn btn-ghost btn-sm nav-cv" download>
+      <svg viewBox="0 0 24 24" class="ic"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+      <span class="cv-txt" data-i18n="nav.resume">Resume</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <div class="badge reveal">
+          <span class="pulse"></span> <span data-i18n="hero.badge">Open to new opportunities &amp; freelance</span>
+        </div>
+        <h1 class="hero-title reveal">
+          <span class="hi" data-i18n="hero.hi">Hi, I'm</span>
+          <span class="name">Zeyad Elshenhab</span>
+        </h1>
+        <p class="hero-role reveal">
+          <span class="mono">&lt;</span><span data-i18n="hero.role">Flutter Developer</span><span class="mono">/&gt;</span>
+          <span class="sep">·</span>
+          <span class="typed" id="typed">Real-time apps</span><span class="caret"></span>
+        </p>
+        <p class="hero-intro reveal" data-i18n="hero.intro">
+          I build fast, polished cross-platform mobile apps with Flutter &amp; Dart — and drop down to
+          <strong>native Kotlin &amp; Swift</strong> when the platform demands it. From real-time chat and social
+          platforms to crypto wallets, VPN clients and food-ordering apps that are
+          <strong>live on the App Store, Google Play and RuStore</strong>.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#projects" class="btn btn-primary magnetic">
+            <span data-i18n="hero.cta1">View my work</span>
+            <svg viewBox="0 0 24 24" class="ic"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost magnetic" data-i18n="hero.cta2">Get in touch</a>
+        </div>
+        <div class="stats reveal">
+          <div class="stat"><b data-count="3" data-suffix="+">0</b><span data-i18n="stat.years">Years commercial<br/>experience</span></div>
+          <div class="stat"><b data-count="6" data-suffix="+">0</b><span data-i18n="stat.apps">Mobile apps<br/>built</span></div>
+          <div class="stat"><b data-count="3">0</b><span data-i18n="stat.stores">App stores<br/>published on</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" id="heroVisual" aria-hidden="true">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="shot-stack">
+          <img class="shot s1" src="assets/tunnel/2.jpg" alt="" />
+          <img class="shot s2" src="assets/adam/1.jpg" alt="" />
+          <img class="shot s3" src="assets/gyber/1.jpg" alt="" />
+        </div>
+        <div class="float-chip chip-code">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <pre><code><span class="k">class</span> <span class="t">Zeyad</span> <span class="k">extends</span> <span class="t">Developer</span> {
+  <span class="k">final</span> stack = [<span class="s">'Flutter'</span>, <span class="s">'Dart'</span>];
+  <span class="k">final</span> native = [<span class="s">'Kotlin'</span>, <span class="s">'Swift'</span>];
+  <span class="k">final</span> state = <span class="t">Bloc</span>();
+}</code></pre>
+        </div>
+        <div class="float-chip chip-app">
+          <img src="assets/adam/icon.png" alt="" />
+          <div><b>Adam &amp; Eva</b><span data-i18n="chip.adam">★ 5.0 · Live</span></div>
+        </div>
+        <div class="float-chip chip-app chip-app-2">
+          <img src="assets/tunnel/icon.png" alt="" />
+          <div><b>Tunnel67</b><span data-i18n="chip.vpn">Connected · 00:42</span></div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll down"><span class="mouse"><span class="wheel"></span></span><span data-i18n="hero.scroll">scroll</span></a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Flutter</span><i>✦</i><span>Dart</span><i>✦</i><span>BLoC / Cubit</span><i>✦</i><span>Clean Architecture</span><i>✦</i><span>WebSocket</span><i>✦</i><span>Firebase</span><i>✦</i><span>REST APIs</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Swift</span><i>✦</i><span>Riverpod</span><i>✦</i><span>Supabase</span><i>✦</i><span>Stripe</span><i>✦</i><span>web3dart</span><i>✦</i>
+        <span>Flutter</span><i>✦</i><span>Dart</span><i>✦</i><span>BLoC / Cubit</span><i>✦</i><span>Clean Architecture</span><i>✦</i><span>WebSocket</span><i>✦</i><span>Firebase</span><i>✦</i><span>REST APIs</span><i>✦</i><span>Kotlin</span><i>✦</i><span>Swift</span><i>✦</i><span>Riverpod</span><i>✦</i><span>Supabase</span><i>✦</i><span>Stripe</span><i>✦</i><span>web3dart</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="about.eyebrow">01 — About me</span>
+        <h2 data-i18n="about.title">Turning ideas into apps<br/><span class="grad">people actually use.</span></h2>
+        <p class="lead" data-i18n="about.lead">
+          I'm a Flutter developer based in Russia with a Software Engineering degree from Kazan Federal University.
+          For 3+ years I've been shipping production apps for startups and clients — designing scalable architecture,
+          wiring up real-time features and sweating the small UI details that make an app feel native on both platforms.
+          I'm not limited to Dart: when a feature needs the platform itself, I write native code in Kotlin for Android
+          and Swift for iOS and bridge it into Flutter.
+        </p>
+      </div>
+      <div class="cards-4">
+        <article class="card glow reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
+          <h3 data-i18n="about.c1t">Real-time systems</h3>
+          <p data-i18n="about.c1p">Chat, typing indicators, unread counters and live notifications over WebSockets.</p>
+        </article>
+        <article class="card glow reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h3 data-i18n="about.c2t">Clean architecture</h3>
+          <p data-i18n="about.c2p">BLoC/Cubit, SOLID and layered modules that stay maintainable as the product grows.</p>
+        </article>
+        <article class="card glow reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 3c3 3 6 4 8 4 0 7-3 12-8 14-5-2-8-7-8-14 2 0 5-1 8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3 data-i18n="about.c3t">Native Kotlin &amp; Swift</h3>
+          <p data-i18n="about.c3p">Native Android &amp; iOS code bridged via platform channels — VPN tunnels, payments, maps and more.</p>
+        </article>
+        <article class="card glow reveal">
+          <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></div>
+          <h3 data-i18n="about.c4t">Ship to stores</h3>
+          <p data-i18n="about.c4p">From first commit to App Store, Google Play and RuStore releases and TestFlight.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="exp.eyebrow">02 — Experience</span>
+        <h2 data-i18n="exp.title">Where I've <span class="grad">worked.</span></h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card card glow">
+            <div class="tl-top">
+              <div>
+                <h3 data-i18n="exp.role">Flutter Developer</h3>
+                <span class="company">DevSparkClub</span>
+              </div>
+              <span class="date now" data-i18n="exp.d1">Nov 2025 — Present</span>
+            </div>
+            <ul>
+              <li data-i18n="exp.ds1">Building <b>2Arrowz</b>, a social matchmaking app connecting people across friendship, romance, business and travel.</li>
+              <li data-i18n="exp.ds2">Implemented swipe-based matching with custom animations and gesture handling.</li>
+              <li data-i18n="exp.ds3">Built a real-time chat: message lists, typing indicators, unread counters, scroll logic and custom inputs.</li>
+              <li data-i18n="exp.ds4">Developed an AI-assistant chat with animated responses, smart suggestions and its own UI behavior.</li>
+              <li data-i18n="exp.ds5">Shipped <b>Tunnel67</b>, a VPN client live on the App Store and Google Play.</li>
+            </ul>
+            <div class="tags"><span>Flutter</span><span>BLoC</span><span data-i18n="tag.anim">Animations</span><span>WebSocket</span><span data-i18n="tag.aichat">AI chat</span></div>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card card glow">
+            <div class="tl-top">
+              <div>
+                <h3 data-i18n="exp.role">Flutter Developer</h3>
+                <span class="company">Founders</span>
+              </div>
+              <span class="date" data-i18n="exp.d2">May 2025 — Oct 2025</span>
+            </div>
+            <ul>
+              <li data-i18n="exp.f1">Developed and scaled <b>Founders</b>, a social network for entrepreneurs to connect, manage investments and chat in real time.</li>
+              <li data-i18n="exp.f2">Used WebSockets for instant messaging, live partner-request notifications and investment updates.</li>
+              <li data-i18n="exp.f3">Followed Clean Architecture with BLoC for predictable, testable and modular code.</li>
+              <li data-i18n="exp.f4">Designed reusable UI for profiles, investment listings, partner requests and chat modules.</li>
+            </ul>
+            <div class="tags"><span>Clean Architecture</span><span>BLoC</span><span>WebSocket</span><span>REST</span></div>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card card glow">
+            <div class="tl-top">
+              <div>
+                <h3 data-i18n="exp.role">Flutter Developer</h3>
+                <span class="company">gyber.org</span>
+              </div>
+              <span class="date" data-i18n="exp.d3">Feb 2024 — Apr 2025</span>
+            </div>
+            <ul>
+              <li data-i18n="exp.g1">Developed and customized a <b>cryptocurrency wallet</b> app in Flutter &amp; Dart.</li>
+              <li data-i18n="exp.g2">Integrated Ethereum via web3dart to call smart contracts and fetch real-time balances.</li>
+              <li data-i18n="exp.g3">Built advanced UI: dynamic AppBars, balance displays and token-management sheets.</li>
+              <li data-i18n="exp.g4">Worked in an agile team delivering secure, responsive cross-platform experiences.</li>
+            </ul>
+            <div class="tags"><span>web3dart</span><span>Ethereum</span><span>BLoC</span><span data-i18n="tag.security">Security</span></div>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card card glow">
+            <div class="tl-top">
+              <div>
+                <h3 data-i18n="exp.freelance">Freelance Flutter Developer</h3>
+                <span class="company" data-i18n="exp.adamCo">Adam &amp; Eva restaurant · Kazan</span>
+              </div>
+              <span class="date">2026</span>
+            </div>
+            <ul>
+              <li data-i18n="exp.a1">Built a food-ordering app end-to-end for a restaurant client — menu, cart, checkout and order tracking.</li>
+              <li data-i18n="exp.a2">Published it to the <b>App Store, Google Play and RuStore</b> and handled the full release process.</li>
+            </ul>
+            <div class="tags"><span data-i18n="tag.freelance">Freelance</span><span>E-commerce</span><span data-i18n="tag.release">Store release</span></div>
+          </div>
+        </li>
+        <li class="tl-item reveal">
+          <div class="tl-dot edu"></div>
+          <div class="tl-card card glow">
+            <div class="tl-top">
+              <div>
+                <h3 data-i18n="edu.degree">B.Sc. Software Engineering</h3>
+                <a class="company company-link" href="https://eng.kpfu.ru/" data-href-ru="https://kpfu.ru/" target="_blank" rel="noopener" data-i18n="edu.uni">Kazan Federal University</a>
+              </div>
+              <span class="date">2021 — 2025</span>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="proj.eyebrow">03 — Selected work</span>
+        <h2 data-i18n="proj.title">Apps I've <span class="grad">built &amp; shipped.</span></h2>
+        <p class="lead" data-i18n="proj.lead">Real products, real users. Tap any screenshot to open it full-size.</p>
+      </div>
+
+      <!-- Adam & Eva -->
+      <article class="project reveal" style="--p:#e8b44c">
+        <div class="project-info">
+          <div class="project-head">
+            <img class="app-icon" src="assets/adam/icon.png" alt="Adam & Eva app icon" />
+            <div>
+              <div class="pills"><span class="pill live"><span class="pulse"></span><span data-i18n="pill.live">Live</span></span><span class="pill" data-i18n="pill.freelance">Freelance</span></div>
+              <h3 data-i18n="adam.name">Adam &amp; Eva</h3>
+              <span class="sub" data-i18n="adam.sub">Food ordering app · Restaurant in Kazan</span>
+            </div>
+          </div>
+          <p data-i18n="adam.desc">
+            A complete online ordering experience for a restaurant in Kazan. Customers browse the menu by
+            category, search dishes, add to cart, place orders and follow their status in real time —
+            wrapped in a dark &amp; gold premium UI.
+          </p>
+          <ul class="feat">
+            <li data-i18n="adam.f1">Menu with categories, search &amp; promo banners</li>
+            <li data-i18n="adam.f2">Cart, checkout &amp; order-status tracking</li>
+            <li data-i18n="adam.f3">Secure email authentication &amp; user data</li>
+            <li data-i18n="adam.f4">Released on 3 stores including RuStore</li>
+          </ul>
+          <div class="tags"><span>Flutter</span><span>Dart</span><span>REST API</span><span>Auth</span><span>iOS &amp; Android</span></div>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/ru/app/%D0%B0%D0%B4%D0%B0%D0%BC-%D0%B8-%D0%B5%D0%B2%D0%B0/id6761149171?l=en-GB" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66ZM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.96 2.79 1.02.08 2.05-.52 2.68-1.27Z"/></svg>
+              <span><small data-i18n="store.apple">Download on the</small>App Store</span>
+            </a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.adamandeve.foodapp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M3.6 2.2c-.3.3-.4.7-.4 1.2v17.2c0 .5.1.9.4 1.2l9.7-9.8-9.7-9.8Zm10.8 10.9 2.6 2.6-11.3 6.5 8.7-9.1Zm3.9-1.9-2.8-1.6-2.9 2.9 2.9 2.9 2.8-1.6c.8-.5.8-1.6 0-2.1v-.5ZM5.7 1.8 17 8.3l-2.6 2.6-8.7-9.1Z"/></svg>
+              <span><small data-i18n="store.play">Get it on</small>Google Play</span>
+            </a>
+            <a class="store" href="https://www.rustore.ru/catalog/app/com.adamandeve.foodapp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M4.3 4.3C2 6.6 2 10.3 2 12s0 5.4 2.3 7.7S10.3 22 12 22s5.4 0 7.7-2.3S22 13.7 22 12s0-5.4-2.3-7.7S13.7 2 12 2 6.6 2 4.3 4.3Zm3.4 3.6 7.2 1.7c.3.1.6.4.6.7v6.1c0 .3-.3.4-.5.3l-1.6-.4c-.2-.1-.4-.3-.4-.5V13c0-.3-.2-.6-.5-.7l-1.4-.4c-.2 0-.4.1-.4.3v2.5c0 .3-.3.4-.5.3l-1.6-.4c-.2 0-.4-.3-.4-.5V8.2c0-.2.1-.3.3-.3h1.2Z"/></svg>
+              <span><small data-i18n="store.ru">Available on</small>RuStore</span>
+            </a>
+          </div>
+        </div>
+        <div class="gallery" data-gallery>
+          <img src="assets/adam/1.jpg" alt="Adam & Eva — home screen" loading="lazy" />
+          <img src="assets/adam/2.jpg" alt="Adam & Eva — screen 2" loading="lazy" />
+          <img src="assets/adam/3.jpg" alt="Adam & Eva — screen 3" loading="lazy" />
+          <img src="assets/adam/4.jpg" alt="Adam & Eva — screen 4" loading="lazy" />
+          <img src="assets/adam/5.jpg" alt="Adam & Eva — screen 5" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Tunnel67 -->
+      <article class="project flip reveal" style="--p:#ff6a2b">
+        <div class="project-info">
+          <div class="project-head">
+            <img class="app-icon" src="assets/tunnel/icon.png" alt="Tunnel67 app icon" />
+            <div>
+              <div class="pills"><span class="pill live"><span class="pulse"></span><span data-i18n="pill.live">Live</span></span><span class="pill">DevSparkClub</span></div>
+              <h3>Tunnel67</h3>
+              <span class="sub" data-i18n="tun.sub">Secure VPN client · iOS &amp; Android</span>
+            </div>
+          </div>
+          <p data-i18n="tun.desc">
+            A fast, stable VPN app with one-tap connection. Built around native VPN capabilities on each
+            platform and bridged into a clean Flutter UI — server list, live connection timer and status,
+            designed to stay connected without drops.
+          </p>
+          <ul class="feat">
+            <li data-i18n="tun.f1">One-tap connect with live session timer</li>
+            <li data-i18n="tun.f2">Server selection &amp; connection status</li>
+            <li data-i18n="tun.f3">Native VPN layer in Kotlin &amp; Swift</li>
+            <li data-i18n="tun.f4">Subscription-ready, store-compliant flows</li>
+          </ul>
+          <div class="tags"><span>Flutter</span><span>Platform Channels</span><span>Kotlin</span><span>Swift</span><span>Networking</span></div>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/ru/app/tunnel67/id6779203722?l=en-GB" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.66ZM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.96 2.79 1.02.08 2.05-.52 2.68-1.27Z"/></svg>
+              <span><small data-i18n="store.apple">Download on the</small>App Store</span>
+            </a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=club.devspark.tunnel_67" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M3.6 2.2c-.3.3-.4.7-.4 1.2v17.2c0 .5.1.9.4 1.2l9.7-9.8-9.7-9.8Zm10.8 10.9 2.6 2.6-11.3 6.5 8.7-9.1Zm3.9-1.9-2.8-1.6-2.9 2.9 2.9 2.9 2.8-1.6c.8-.5.8-1.6 0-2.1v-.5ZM5.7 1.8 17 8.3l-2.6 2.6-8.7-9.1Z"/></svg>
+              <span><small data-i18n="store.play">Get it on</small>Google Play</span>
+            </a>
+          </div>
+        </div>
+        <div class="gallery" data-gallery>
+          <img src="assets/tunnel/1.jpg" alt="Tunnel67 — screen 1" loading="lazy" />
+          <img src="assets/tunnel/2.jpg" alt="Tunnel67 — screen 2" loading="lazy" />
+          <img src="assets/tunnel/3.jpg" alt="Tunnel67 — screen 3" loading="lazy" />
+          <img src="assets/tunnel/4.jpg" alt="Tunnel67 — screen 4" loading="lazy" />
+          <img src="assets/tunnel/5.jpg" alt="Tunnel67 — screen 5" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- 2Arrowz -->
+      <article class="project reveal" style="--p:#5fc4c6">
+        <div class="project-info">
+          <div class="project-head">
+            <img class="app-icon" src="assets/2arrowz/icon.png" alt="2Arrowz app icon" />
+            <div>
+              <div class="pills"><span class="pill beta"><span class="pulse"></span><span data-i18n="pill.beta">TestFlight beta</span></span><span class="pill">DevSparkClub</span></div>
+              <h3>2Arrowz</h3>
+              <span class="sub" data-i18n="arr.sub">Energy-based matchmaking · AI assistant</span>
+            </div>
+          </div>
+          <p data-i18n="arr.desc">
+            A social matchmaking app that connects people by their "energy" across different spheres —
+            romance, friendship, business, leisure, sport and travel. Users build an energetic profile from
+            their birth chart, swipe through matches, check compatibility with anyone and get advice from
+            an AI assistant.
+          </p>
+          <ul class="feat">
+            <li data-i18n="arr.f1">Swipe matching with custom gestures &amp; animations</li>
+            <li data-i18n="arr.f2">Birth-chart onboarding &amp; energy profile</li>
+            <li data-i18n="arr.f3">Compatibility scores: physical, emotional, mental, spiritual</li>
+            <li data-i18n="arr.f4">Real-time chat &amp; animated AI-assistant chat</li>
+          </ul>
+          <div class="tags"><span>Flutter</span><span>BLoC</span><span>WebSocket</span><span data-i18n="tag.gestures">Gestures</span><span>AI</span></div>
+          <div class="stores"><span class="store disabled"><svg viewBox="0 0 24 24" class="ic"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><small data-i18n="store.tf">Currently in</small>TestFlight</span></span></div>
+        </div>
+        <div class="gallery" data-gallery>
+          <img src="assets/2arrowz/1.jpg" alt="2Arrowz — swipe matching" loading="lazy" />
+          <img src="assets/2arrowz/2.jpg" alt="2Arrowz — interest spheres" loading="lazy" />
+          <img src="assets/2arrowz/3.jpg" alt="2Arrowz — birth chart profile" loading="lazy" />
+          <img src="assets/2arrowz/4.jpg" alt="2Arrowz — compatibility check" loading="lazy" />
+          <img src="assets/2arrowz/5.jpg" alt="2Arrowz — AI assistant chat" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Gyber Wallet -->
+      <article class="project flip reveal" style="--p:#7fb547">
+        <div class="project-info">
+          <div class="project-head">
+            <div class="app-icon app-icon-gyber"><img src="assets/gyber/logo.png" alt="Gyber Wallet logo" /></div>
+            <div>
+              <div class="pills"><span class="pill">gyber.org</span><span class="pill">Web3</span></div>
+              <h3>Gyber Wallet</h3>
+              <span class="sub" data-i18n="gy.sub">Crypto wallet · Ethereum &amp; BEP20</span>
+            </div>
+          </div>
+          <p data-i18n="gy.desc">
+            A multi-wallet crypto app with real-time balances, token management and transaction history.
+            Talks to Ethereum smart contracts through web3dart and protects the user with a recovery phrase
+            and biometric confirmation.
+          </p>
+          <ul class="feat">
+            <li data-i18n="gy.f1">Multiple wallets, token list &amp; live balances</li>
+            <li data-i18n="gy.f2">Price charts with 1D – 2Y ranges</li>
+            <li data-i18n="gy.f3">Send / receive with transaction status</li>
+            <li data-i18n="gy.f4">Recovery phrase, Face ID &amp; fingerprint</li>
+          </ul>
+          <div class="tags"><span>Flutter</span><span>web3dart</span><span>Ethereum</span><span>BLoC</span><span data-i18n="tag.bio">Biometrics</span></div>
+        </div>
+        <div class="gallery" data-gallery>
+          <img src="assets/gyber/1.jpg" alt="Gyber Wallet — wallet overview" loading="lazy" />
+          <img src="assets/gyber/2.jpg" alt="Gyber Wallet — token chart &amp; history" loading="lazy" />
+          <img src="assets/gyber/3.jpg" alt="Gyber Wallet — recovery phrase" loading="lazy" />
+          <img src="assets/gyber/4.jpg" alt="Gyber Wallet — biometric confirmation" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- More projects -->
+      <h3 class="more-title reveal" data-i18n="more.title">More projects</h3>
+      <div class="cards-2">
+        <article class="card glow mini reveal">
+          <div class="mini-top"><div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 1-3.5 3-4"/></svg></div><span class="pill">Founders</span></div>
+          <h4>Founders</h4>
+          <p data-i18n="more.founders">Social network for entrepreneurs — professional connections, investment listings, partner requests and real-time chat.</p>
+          <div class="tags"><span>WebSocket</span><span>Clean Arch</span><span>BLoC</span></div>
+        </article>
+        <article class="card glow mini reveal">
+          <div class="mini-top"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg></div><span class="pill" data-i18n="more.skinPill">AI · Health</span></div>
+          <h4 data-i18n="more.skinTitle">Skin Cancer Detection</h4>
+          <p data-i18n="more.skin">AI-powered diagnosis app: capture or upload a photo, classified by an ML model behind a Flask REST API, with Firebase Auth.</p>
+          <div class="tags"><span>ML</span><span>Flask API</span><span>Firebase</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="skills.eyebrow">04 — Toolbox</span>
+        <h2 data-i18n="skills.title">Skills &amp; <span class="grad">technologies.</span></h2>
+      </div>
+      <div class="skills">
+        <div class="skill-group card glow reveal">
+          <h4 data-i18n="sk.mobile">Mobile</h4>
+          <div class="chips"><span class="hot">Flutter</span><span class="hot">Dart</span><span class="hot">Kotlin</span><span class="hot">Swift</span><span>Java</span><span>iOS &amp; Android</span><span>Platform Channels</span></div>
+        </div>
+        <div class="skill-group card glow reveal">
+          <h4 data-i18n="sk.arch">Architecture &amp; State</h4>
+          <div class="chips"><span class="hot">Clean Architecture</span><span class="hot">BLoC</span><span>Cubit</span><span>MVVM</span><span>Riverpod</span><span>Provider</span><span>SOLID</span></div>
+        </div>
+        <div class="skill-group card glow reveal">
+          <h4 data-i18n="sk.net">Networking &amp; Backend</h4>
+          <div class="chips"><span class="hot">REST APIs</span><span class="hot">WebSocket</span><span>Dio / HTTP</span><span>JSON</span><span>Firebase</span><span>Supabase</span></div>
+        </div>
+        <div class="skill-group card glow reveal">
+          <h4 data-i18n="sk.pay">Payments &amp; Maps</h4>
+          <div class="chips"><span data-i18n="sk.iap">In-App Purchases</span><span>Stripe</span><span>Google Pay</span><span>Apple Pay</span><span>Google Maps</span><span>Yandex Maps</span></div>
+        </div>
+        <div class="skill-group card glow reveal">
+          <h4 data-i18n="sk.quality">Quality &amp; Tooling</h4>
+          <div class="chips"><span data-i18n="sk.unit">Unit Tests</span><span data-i18n="sk.widget">Widget Tests</span><span>Git / GitHub</span><span>CI/CD</span><span>Code Review</span><span data-i18n="sk.perf">Performance</span></div>
+        </div>
+        <div class="skill-group card glow reveal">
+          <h4 data-i18n="sk.langs">Languages</h4>
+          <div class="langs">
+            <div><span data-i18n="lang.ar">Arabic</span><i style="--w:100%"></i><small data-i18n="lang.native">Native</small></div>
+            <div><span data-i18n="lang.ru">Russian</span><i style="--w:88%"></i><small data-i18n="lang.fluent">Fluent</small></div>
+            <div><span data-i18n="lang.en">English</span><i style="--w:70%"></i><small>B2</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact-box reveal">
+        <span class="eyebrow" data-i18n="contact.eyebrow">05 — Let's connect</span>
+        <h2 data-i18n="contact.title">Have an app idea?<br/><span class="grad">Let's build it together.</span></h2>
+        <p class="lead" data-i18n="contact.lead">I'm open to full-time roles, contracts and freelance projects. The fastest way to reach me is Telegram or email.</p>
+        <div class="contact-main">
+          <a href="mailto:z.elshenhab2012@gmail.com" class="btn btn-primary magnetic">
+            <svg viewBox="0 0 24 24" class="ic"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            z.elshenhab2012@gmail.com
+          </a>
+          <button class="btn btn-ghost" id="copyEmail" data-email="z.elshenhab2012@gmail.com">
+            <svg viewBox="0 0 24 24" class="ic"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+            <span data-i18n="contact.copy">Copy email</span>
+          </button>
+        </div>
+        <div class="socials">
+          <a href="https://t.me/zeyad_elshenhab" target="_blank" rel="noopener" class="social">
+            <svg viewBox="0 0 24 24" class="fill"><path d="M21.9 4.3 18.8 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.9 13 2.3 11.6c-1-.3-1-1 .2-1.5L20.5 3.2c.8-.3 1.6.2 1.4 1.1Z"/></svg>
+            <span><b>Telegram</b><small>@zeyad_elshenhab</small></span>
+          </a>
+          <a href="https://www.linkedin.com/in/zeyad-elshenhab" target="_blank" rel="noopener" class="social">
+            <svg viewBox="0 0 24 24" class="fill"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm1.8 13.1H3.6V9h3.5v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
+            <span><b>LinkedIn</b><small>zeyad-elshenhab</small></span>
+          </a>
+          <a href="https://github.com/zelshenhab" target="_blank" rel="noopener" class="social">
+            <svg viewBox="0 0 24 24" class="fill"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            <span><b>GitHub</b><small>zelshenhab</small></span>
+          </a>
+          <a href="tel:+79991647679" class="social">
+            <svg viewBox="0 0 24 24" class="ic"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            <span><b data-i18n="contact.phone">Phone</b><small>+7 999 164-76-79</small></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year">2026</span> Zeyad Elshenhab</span>
+    <span class="muted" data-i18n="footer.tag">Designed &amp; built with care · Based in Russia</span>
+    <a href="#hero" class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" class="ic"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></a>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-btn lb-close" aria-label="Close">✕</button>
+    <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+    <img alt="" />
+    <button class="lb-btn lb-next" aria-label="Next">›</button>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

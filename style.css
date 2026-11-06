@@ -259,7 +259,18 @@ html[lang="ru"] .card h3, html[lang="ru"] .skill-group h4 { font-size: 16.5px; }
   transform: rotate(2deg); transition: transform 0.7s var(--ease);
 }
 .portrait-frame img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px; transition: transform 0.9s var(--ease); }
+.portrait { margin-bottom: 70px; }
+.portrait img { cursor: zoom-in; }
+.portrait-grad {
+  position: absolute; width: 50%; left: -20%; bottom: -70px; z-index: 2; border-radius: 22px;
+  background: linear-gradient(150deg, rgba(255, 194, 75, 0.85), rgba(123, 97, 255, 0.5));
+  box-shadow: 0 30px 60px -18px rgba(0, 0, 0, 0.95); transform: rotate(-7deg);
+}
+.portrait-grad img { border-radius: 20px; }
 .portrait:hover .portrait-frame { transform: rotate(0deg); }
+.portrait:hover .portrait-grad { transform: rotate(-3deg) translateY(-6px); }
+.chip-grad { left: 22%; bottom: -88px; z-index: 3; font-size: 12.5px; animation-delay: -2s; }
+.portrait-chip.chip-grad .ic { color: var(--amber); }
 .portrait:hover .portrait-frame img { transform: scale(1.04); }
 .portrait-chip { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
 .portrait-chip .ic { color: var(--cyan); width: 16px; height: 16px; }
@@ -278,11 +289,7 @@ html[lang="ru"] .card h3, html[lang="ru"] .skill-group h4 { font-size: 16.5px; }
 .tl-dot.edu { border-color: var(--amber); }
 .tl-top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
 .tl-card h3 { margin-bottom: 2px; }
-.edu-card { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 28px; align-items: center; }
-.edu-note { margin-top: 16px; max-width: 520px; }
-.edu-photo { cursor: zoom-in; border-radius: 20px; padding: 2px; background: linear-gradient(150deg, rgba(255, 194, 75, 0.7), rgba(123, 97, 255, 0.4)); transform: rotate(-2deg); transition: transform 0.6s var(--ease); }
-.edu-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; }
-.edu-card:hover .edu-photo { transform: rotate(0deg) scale(1.03); }
+.edu-note { margin-top: 16px; max-width: 620px; color: var(--text2); font-size: 15px; }
 .company { color: var(--cyan); font-weight: 600; font-size: 15px; }
 .company-link { border-bottom: 1px solid transparent; transition: border-color 0.3s; }
 .company-link::after { content: "↗"; display: inline-block; margin-left: 4px; font-size: 13px; transition: transform 0.35s var(--spring); }
@@ -461,10 +468,10 @@ body.lang-fade main, body.lang-fade .footer { opacity: 0; filter: blur(6px); }
   .chip-app { left: 0; }
   .chip-app-2 { left: auto; right: 0; }
   .cards-4, .skills { grid-template-columns: 1fr; }
-  .portrait { max-width: 270px; }
+  .portrait { max-width: 250px; margin-bottom: 60px; }
+  .portrait-grad { left: -12%; bottom: -54px; width: 48%; }
+  .chip-grad { left: 30%; bottom: -74px; }
   .chip-stack { right: -10px; }
-  .edu-card { grid-template-columns: minmax(0, 1fr); }
-  .edu-photo { max-width: 240px; }
   .project, .project.flip { padding: 22px; border-radius: 24px; }
   .project h3 { font-size: 26px; }
   .app-icon { width: 62px; height: 62px; border-radius: 16px; }

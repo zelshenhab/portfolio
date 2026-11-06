@@ -14,9 +14,14 @@
   const mobile = window.matchMedia('(max-width: 760px)');
   let lastY = window.scrollY;
 
+  // Telegram button: appears after the hero, steps aside once the contact section is on screen
+  const tgFab = document.getElementById('tgFab');
+  const contact = document.getElementById('contact');
+
   const onScroll = () => {
     const y = window.scrollY;
     nav.classList.toggle('scrolled', y > 30);
+    tgFab.classList.toggle('show', y > 500 && contact.getBoundingClientRect().top > innerHeight * 0.8);
     const menuOpen = burger.getAttribute('aria-expanded') === 'true';
     if (!mobile.matches || menuOpen || y < 80) nav.classList.remove('nav-hidden');
     else if (y > lastY + 6) nav.classList.add('nav-hidden');
@@ -136,10 +141,17 @@
   // Drag-to-scroll galleries + lightbox
   const lb = document.getElementById('lightbox');
   const lbImg = lb.querySelector('img');
-  let lbList = [], lbIndex = 0;
+  let lbList = [], lbIndex = 0, lbOpener = null;
   const showLb = () => { lbImg.src = lbList[lbIndex].src; lbImg.alt = lbList[lbIndex].alt; };
-  const openLb = (list, i) => { lbList = list; lbIndex = i; showLb(); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); };
-  const closeLb = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); };
+  const openLb = (list, i) => {
+    lbList = list; lbIndex = i; lbOpener = document.activeElement; showLb();
+    lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
+    lb.querySelector('.lb-close').focus({ preventScroll: true });
+  };
+  const closeLb = () => {
+    lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true');
+    lbOpener?.focus?.({ preventScroll: true });
+  };
   const step = d => { lbIndex = (lbIndex + d + lbList.length) % lbList.length; showLb(); };
   lb.querySelector('.lb-close').addEventListener('click', closeLb);
   lb.querySelector('.lb-prev').addEventListener('click', () => step(-1));
@@ -165,11 +177,21 @@
       g.scrollLeft = startScroll - dx;
     });
     addEventListener('pointerup', () => { down = false; g.classList.remove('dragging'); });
+    const imgs = [...g.querySelectorAll('img')];
     g.addEventListener('click', e => {
       const img = e.target.closest('img');
       if (!img || moved) return;
-      const imgs = [...g.querySelectorAll('img')];
       openLb(imgs, imgs.indexOf(img));
+    });
+    // Keyboard: screenshots are focusable and open with Enter / Space
+    imgs.forEach((img, i) => {
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.addEventListener('keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        openLb(imgs, i);
+      });
     });
   });
 

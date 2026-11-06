@@ -369,19 +369,6 @@ html[lang="ru"] .card h3, html[lang="ru"] .skill-group h4 { font-size: 16.5px; }
 .gallery::-webkit-scrollbar { height: 6px; }
 .gallery::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 6px; }
 
-/* ---------- Services ---------- */
-.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.service { padding: 32px; }
-.svc-num { position: absolute; top: 26px; right: 30px; font-family: var(--font-display); font-size: 44px; font-weight: 800; line-height: 1; color: rgba(255, 255, 255, 0.05); transition: color 0.4s; }
-.service:hover .svc-num { color: rgba(56, 214, 255, 0.18); }
-.service > p { margin-bottom: 18px; }
-.svc-list { list-style: none; display: grid; gap: 8px; padding-top: 18px; border-top: 1px solid var(--border); }
-.svc-list li { position: relative; padding-left: 24px; font-size: 14.5px; color: #c4c8dc; }
-.svc-list li::before { content: ""; position: absolute; left: 1px; top: 7px; width: 7px; height: 4px; border-left: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan); transform: rotate(-45deg); }
-.svc-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 18px; padding: 24px 28px; border-radius: var(--radius); border: 1px dashed var(--border2); background: rgba(255, 255, 255, 0.02); }
-.svc-cta p { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
-.svc-cta .fill { width: 18px; height: 18px; }
-
 /* ---------- Telegram button (phones) ---------- */
 .tg-fab {
   display: none; position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60;
@@ -501,10 +488,7 @@ body.lang-fade main, body.lang-fade .footer { opacity: 0; filter: blur(6px); }
   .chip-code pre { font-size: 10px; margin-top: 6px; }
   .chip-app { left: 0; }
   .chip-app-2 { left: auto; right: 0; }
-  .cards-4, .skills, .services { grid-template-columns: 1fr; }
-  .service { padding: 26px; }
-  .svc-cta { padding: 22px; }
-  .svc-cta .btn { width: 100%; justify-content: center; }
+  .cards-4, .skills { grid-template-columns: 1fr; }
   .tg-fab { display: grid; }
   .portrait { max-width: 250px; margin-bottom: 60px; }
   .portrait-grad { left: -12%; bottom: -54px; width: 48%; }

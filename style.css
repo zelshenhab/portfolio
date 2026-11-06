@@ -156,7 +156,7 @@ html[lang="ru"] .lang-thumb { transform: translateX(100%); }
 html[lang="ru"] { --font-display: 'Unbounded', system-ui, sans-serif; }
 html[lang="ru"] .section h2 { font-size: clamp(28px, 4.2vw, 48px); letter-spacing: -0.02em; line-height: 1.15; }
 html[lang="ru"] .project h3 { font-size: 28px; letter-spacing: -0.01em; }
-html[lang="ru"] .card h3, html[lang="ru"] .mini h4, html[lang="ru"] .skill-group h4 { font-size: 16.5px; }
+html[lang="ru"] .card h3, html[lang="ru"] .skill-group h4 { font-size: 16.5px; }
 .hero-title .name { font-family: 'Syne', system-ui, sans-serif; display: block; font-size: clamp(44px, 5.6vw, 76px); font-weight: 800; letter-spacing: -0.035em; background: linear-gradient(180deg, #fff 30%, #9aa0bd); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-role { font-size: clamp(17px, 2vw, 21px); font-weight: 600; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px; }
 .mono { font-family: var(--font-mono); color: var(--cyan); font-weight: 400; }
@@ -246,8 +246,6 @@ html[lang="ru"] .card h3, html[lang="ru"] .mini h4, html[lang="ru"] .skill-group
 .card h3 { font-family: var(--font-display); font-size: 19px; font-weight: 700; margin-bottom: 8px; }
 .card p { color: var(--text2); font-size: 15px; }
 .cards-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.cards-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 .tags span { font-size: 12.5px; font-family: var(--font-mono); padding: 5px 11px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: #b5bad0; }
@@ -286,6 +284,8 @@ html[lang="ru"] .card h3, html[lang="ru"] .mini h4, html[lang="ru"] .skill-group
 .project.flip::before { right: auto; left: -160px; }
 .project-head { display: flex; gap: 18px; align-items: center; margin-bottom: 20px; }
 .app-icon { width: 76px; height: 76px; border-radius: 20px; box-shadow: 0 14px 34px -10px var(--p), 0 0 0 1px rgba(255,255,255,0.1); flex-shrink: 0; }
+.app-icon-glyph { display: grid; place-items: center; background: linear-gradient(135deg, color-mix(in srgb, var(--p) 85%, #fff), color-mix(in srgb, var(--p) 60%, #000)); }
+.app-icon-glyph svg { width: 44%; height: 44%; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .app-icon-gyber { display: grid; place-items: center; overflow: hidden; background: linear-gradient(90deg, #0c181d, #192d3a); }
 .app-icon-gyber img { width: 128%; max-width: none; }
 .project h3 { font-family: var(--font-display); font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 6px; }
@@ -324,11 +324,10 @@ html[lang="ru"] .card h3, html[lang="ru"] .mini h4, html[lang="ru"] .skill-group
   transition: transform 0.5s var(--ease);
 }
 .gallery img:hover { transform: translateY(-8px) scale(1.02); }
+.gallery:has(> img:only-child) { justify-content: center; mask-image: none; cursor: default; }
+.gallery img:only-child { width: 300px; border-radius: 26px; }
 .gallery::-webkit-scrollbar { height: 6px; }
 .gallery::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 6px; }
-.more-title { font-family: var(--font-display); font-size: 24px; margin: 60px 0 22px; }
-.mini-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.mini h4 { font-family: var(--font-display); font-size: 20px; margin-bottom: 8px; }
 
 /* ---------- Skills ---------- */
 .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -435,12 +434,13 @@ body.lang-fade main, body.lang-fade .footer { opacity: 0; filter: blur(6px); }
   .chip-code pre { font-size: 10px; margin-top: 6px; }
   .chip-app { left: 0; }
   .chip-app-2 { left: auto; right: 0; }
-  .cards-4, .cards-3, .cards-2, .skills { grid-template-columns: 1fr; }
+  .cards-4, .skills { grid-template-columns: 1fr; }
   .project, .project.flip { padding: 22px; border-radius: 24px; }
   .project h3 { font-size: 26px; }
   .app-icon { width: 62px; height: 62px; border-radius: 16px; }
   .feat { grid-template-columns: 1fr; }
   .gallery img { width: 170px; border-radius: 18px; }
+  .gallery img:only-child { width: 240px; }
   @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   html { scroll-behavior: auto; }

@@ -50,7 +50,7 @@
       <button type="button" data-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-lang="ru" aria-pressed="false">RU</button>
     </div>
-    <a href="assets/Zeyad_Elshenhab_CV.pdf" class="btn btn-ghost btn-sm nav-cv" download>
+    <a href="assets/Zeyad_Elshenhab_CV.pdf" data-href-ru="assets/Zeyad_Elshenhab_CV_RU.pdf" class="btn btn-ghost btn-sm nav-cv" download>
       <svg viewBox="0 0 24 24" class="ic"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
       <span class="cv-txt" data-i18n="nav.resume">Resume</span>
     </a>
@@ -430,22 +430,77 @@
         </div>
       </article>
 
-      <!-- More projects -->
-      <h3 class="more-title reveal" data-i18n="more.title">More projects</h3>
-      <div class="cards-2">
-        <article class="card glow mini reveal">
-          <div class="mini-top"><div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 1-3.5 3-4"/></svg></div><span class="pill">Founders</span></div>
-          <h4>Founders</h4>
-          <p data-i18n="more.founders">Social network for entrepreneurs — professional connections, investment listings, partner requests and real-time chat.</p>
-          <div class="tags"><span>WebSocket</span><span>Clean Arch</span><span>BLoC</span></div>
-        </article>
-        <article class="card glow mini reveal">
-          <div class="mini-top"><div class="card-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg></div><span class="pill" data-i18n="more.skinPill">AI · Health</span></div>
-          <h4 data-i18n="more.skinTitle">Skin Cancer Detection</h4>
-          <p data-i18n="more.skin">AI-powered diagnosis app: capture or upload a photo, classified by an ML model behind a Flask REST API, with Firebase Auth.</p>
-          <div class="tags"><span>ML</span><span>Flask API</span><span>Firebase</span></div>
-        </article>
-      </div>
+      <!-- Founders -->
+      <article class="project reveal" style="--p:#d9a35f">
+        <div class="project-info">
+          <div class="project-head">
+            <div class="app-icon app-icon-glyph"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 1-3.5 3-4"/></svg></div>
+            <div>
+              <div class="pills"><span class="pill">Founders</span><span class="pill" data-i18n="pill.social">Social network</span></div>
+              <h3>Founders</h3>
+              <span class="sub" data-i18n="fo.sub">Networking platform for entrepreneurs</span>
+            </div>
+          </div>
+          <p data-i18n="fo.desc">
+            A social network where entrepreneurs find each other, build professional connections, manage
+            investments and talk in real time. Users search founders by industry and interests, send partner
+            requests and follow investment updates as they happen.
+          </p>
+          <ul class="feat">
+            <li data-i18n="fo.f1">Founder search with industry tags &amp; filters</li>
+            <li data-i18n="fo.f2">Real-time chat over WebSocket</li>
+            <li data-i18n="fo.f3">Partner requests with live notifications</li>
+            <li data-i18n="fo.f4">Investment listings &amp; live updates</li>
+          </ul>
+          <div class="tags"><span>Flutter</span><span>BLoC</span><span>WebSocket</span><span>Clean Architecture</span><span>REST</span></div>
+          <div class="stores">
+            <a class="store" href="https://github.com/Founders-Net/FRONTEND" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              <span><small data-i18n="store.code">View the code on</small>GitHub</span>
+            </a>
+          </div>
+        </div>
+        <div class="gallery" data-gallery>
+          <img src="assets/founders/1.jpg" alt="Founders — founder search" loading="lazy" />
+        </div>
+      </article>
+
+      <!-- Skin Cancer Detection -->
+      <article class="project flip reveal" style="--p:#8b5cf6">
+        <div class="project-info">
+          <div class="project-head">
+            <div class="app-icon app-icon-glyph"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/><path d="M8 12h2l1-2 2 4 1-2h2"/></svg></div>
+            <div>
+              <div class="pills"><span class="pill" data-i18n="more.skinPill">AI · Health</span><span class="pill" data-i18n="pill.personal">Personal project</span></div>
+              <h3 data-i18n="more.skinTitle">Skin Cancer Detection</h3>
+              <span class="sub" data-i18n="sk2.sub">AI health-diagnosis app</span>
+            </div>
+          </div>
+          <p data-i18n="sk2.desc">
+            Take a photo of a skin spot or upload one from the gallery, and a machine-learning model classifies it
+            as benign or malignant with a confidence score. The model runs behind a Flask REST API, and the app is
+            built with Clean Architecture and Firebase.
+          </p>
+          <ul class="feat">
+            <li data-i18n="sk2.f1">Camera capture or gallery upload</li>
+            <li data-i18n="sk2.f2">ML result with confidence score</li>
+            <li data-i18n="sk2.f3">Firebase Auth with Google sign-in</li>
+            <li data-i18n="sk2.f4">English &amp; Russian interface</li>
+          </ul>
+          <div class="tags"><span>Flutter</span><span>Clean Architecture</span><span>Flask API</span><span>ML</span><span>Firebase</span></div>
+          <div class="stores">
+            <a class="store" href="https://github.com/zelshenhab/flutter_skin_cancer" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="fill"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+              <span><small data-i18n="store.code">View the code on</small>GitHub</span>
+            </a>
+          </div>
+        </div>
+        <div class="gallery" data-gallery>
+          <img src="assets/skin/1.jpg" alt="Skin Cancer Detection — malignant result" loading="lazy" />
+          <img src="assets/skin/2.jpg" alt="Skin Cancer Detection — benign result" loading="lazy" />
+          <img src="assets/skin/3.jpg" alt="Skin Cancer Detection — sign up" loading="lazy" />
+        </div>
+      </article>
     </section>
 
     <!-- SKILLS -->

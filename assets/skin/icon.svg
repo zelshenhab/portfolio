@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9b7bff"/>
+      <stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#bg)"/>
+  <!-- viewfinder -->
+  <g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 44v-7a10 10 0 0 1 10-10h7"/>
+    <path d="M76 27h7a10 10 0 0 1 10 10v7"/>
+    <path d="M93 76v7a10 10 0 0 1-10 10h-7"/>
+    <path d="M44 93h-7a10 10 0 0 1-10-10v-7"/>
+  </g>
+  <!-- skin spot -->
+  <path d="M58 44c8-1 15 4 16 11 1 4 4 7 2 12-2 6-9 8-15 8-8 0-15-4-16-11-1-4-3-7-1-11 2-6 8-9 14-9z" fill="#2a0f5c" opacity="0.85"/>
+  <path d="M58 44c8-1 15 4 16 11 1 4 4 7 2 12-2 6-9 8-15 8-8 0-15-4-16-11-1-4-3-7-1-11 2-6 8-9 14-9z" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.9"/>
+  <!-- scan line -->
+  <rect x="22" y="58.5" width="76" height="3" rx="1.5" fill="url(#scan)"/>
+  <!-- AI sparkle -->
+  <path d="M84 30c1 6 3 8 9 9-6 1-8 3-9 9-1-6-3-8-9-9 6-1 8-3 9-9z" fill="#fde68a"/>
+</svg>

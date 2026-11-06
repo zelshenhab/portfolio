@@ -2,6 +2,8 @@
 
 Personal portfolio of Zeyad Elshenhab, Flutter developer (Flutter & Dart, plus native Kotlin & Swift).
 
+**Live:** https://portfolio-zeyad-elshenhab.vercel.app
+
 A static site — plain HTML, CSS and JavaScript, no build step. Available in English and Russian (`?lang=ru`).
 
 ## Run locally

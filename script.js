@@ -7,10 +7,21 @@
   const progress = document.querySelector('.progress');
   const links = [...document.querySelectorAll('.nav-links a')];
   const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+
+  // On phones the nav slides away while scrolling down and returns on scroll up
+  const mobile = window.matchMedia('(max-width: 760px)');
+  let lastY = window.scrollY;
 
   const onScroll = () => {
     const y = window.scrollY;
     nav.classList.toggle('scrolled', y > 30);
+    const menuOpen = burger.getAttribute('aria-expanded') === 'true';
+    if (!mobile.matches || menuOpen || y < 80) nav.classList.remove('nav-hidden');
+    else if (y > lastY + 6) nav.classList.add('nav-hidden');
+    else if (y < lastY - 6) nav.classList.remove('nav-hidden');
+    if (Math.abs(y - lastY) > 6) lastY = y;
     const max = document.documentElement.scrollHeight - innerHeight;
     progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
     let current = -1;
@@ -21,8 +32,6 @@
   onScroll();
 
   // Mobile menu
-  const burger = document.getElementById('burger');
-  const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => {
     const open = burger.getAttribute('aria-expanded') !== 'true';
     burger.setAttribute('aria-expanded', open);

@@ -209,7 +209,7 @@
   // Temporary palette picker, shown only with ?pick or ?theme in the URL
   const params = new URLSearchParams(location.search);
   if (params.has('pick') || params.has('theme')) {
-    const themes = [['ember', 'Ember', '#ff5a2c'], ['lime', 'Lime', '#c6f03c'], ['crimson', 'Crimson', '#ff3b47'], ['paper', 'Paper', '#2f4bff']];
+    const themes = [['original', 'Original', 'linear-gradient(135deg, #38d6ff, #7b61ff, #ff4f8b)'], ['ember', 'Ember', '#ff5a2c'], ['lime', 'Lime', '#c6f03c'], ['crimson', 'Crimson', '#ff3b47'], ['paper', 'Paper', '#2f4bff']];
     const picker = document.createElement('div');
     picker.className = 'theme-picker';
     picker.setAttribute('role', 'group');
@@ -218,7 +218,8 @@
     themes.forEach(([id, name, color]) => {
       const b = document.createElement('button');
       b.type = 'button';
-      b.innerHTML = `<i style="background:${color}"></i>${name}`;
+      b.innerHTML = `<i style="background:${color}"></i><span>${name}</span>`;
+      b.title = name;
       b.setAttribute('aria-pressed', id === current());
       b.addEventListener('click', () => {
         if (id === 'ember') delete document.documentElement.dataset.theme;

@@ -206,34 +206,29 @@
     } catch { location.href = `mailto:${copyBtn.dataset.email}`; }
   });
 
-  // Temporary palette picker, shown only with ?pick or ?theme in the URL
-  const params = new URLSearchParams(location.search);
-  if (params.has('pick') || params.has('theme')) {
-    const themes = [['original', 'Original', 'linear-gradient(135deg, #38d6ff, #7b61ff, #ff4f8b)'], ['ember', 'Ember', '#ff5a2c'], ['lime', 'Lime', '#c6f03c'], ['crimson', 'Crimson', '#ff3b47'], ['paper', 'Paper', '#2f4bff']];
-    const picker = document.createElement('div');
-    picker.className = 'theme-picker';
-    picker.setAttribute('role', 'group');
-    picker.setAttribute('aria-label', 'Colour theme');
-    const current = () => document.documentElement.dataset.theme || 'ember';
-    themes.forEach(([id, name, color]) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.innerHTML = `<i style="background:${color}"></i><span>${name}</span>`;
-      b.title = name;
-      b.setAttribute('aria-pressed', id === current());
-      b.addEventListener('click', () => {
-        if (id === 'ember') delete document.documentElement.dataset.theme;
-        else document.documentElement.dataset.theme = id;
-        picker.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
-        const url = new URL(location.href);
-        url.searchParams.set('pick', '');
-        url.searchParams.set('theme', id);
-        history.replaceState(null, '', url);
-      });
-      picker.appendChild(b);
-    });
-    document.body.appendChild(picker);
-  }
+  // Dark / light toggle (initial mode is set in <head> before paint)
+  const root = document.documentElement;
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const applyMode = mode => {
+    if (mode === 'light') root.dataset.mode = 'light'; else delete root.dataset.mode;
+    themeMeta?.setAttribute('content', mode === 'light' ? '#f6f2f1' : '#0d0b0b');
+  };
+  applyMode(root.dataset.mode === 'light' ? 'light' : 'dark');
+  document.getElementById('modeToggle').addEventListener('click', () => {
+    const next = root.dataset.mode === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('mode', next); } catch {}
+    if (!reduceMotion) {
+      root.classList.add('mode-switching');
+      setTimeout(() => root.classList.remove('mode-switching'), 500);
+    }
+    applyMode(next);
+  });
+  // Follow the device setting live until the visitor picks a mode themselves
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+    let saved = null;
+    try { saved = localStorage.getItem('mode'); } catch {}
+    if (!saved) applyMode(e.matches ? 'light' : 'dark');
+  });
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

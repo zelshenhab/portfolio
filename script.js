@@ -18,10 +18,17 @@
   const tgFab = document.getElementById('tgFab');
   const contact = document.getElementById('contact');
 
+  // Timeline line fills with the scroll; each dot lights up once reached
+  const timeline = document.querySelector('.timeline');
+  const tlItems = [...timeline.querySelectorAll('.tl-item')];
+
   const onScroll = () => {
     const y = window.scrollY;
     nav.classList.toggle('scrolled', y > 30);
     tgFab.classList.toggle('show', y > 500 && contact.getBoundingClientRect().top > innerHeight * 0.8);
+    const tr = timeline.getBoundingClientRect();
+    timeline.style.setProperty('--tl', Math.min(Math.max((innerHeight * 0.6 - tr.top) / tr.height, 0), 1).toFixed(3));
+    tlItems.forEach(li => li.classList.toggle('lit', li.getBoundingClientRect().top + 38 < innerHeight * 0.6));
     const menuOpen = burger.getAttribute('aria-expanded') === 'true';
     if (!mobile.matches || menuOpen || y < 80) nav.classList.remove('nav-hidden');
     else if (y > lastY + 6) nav.classList.add('nav-hidden');
@@ -46,6 +53,22 @@
     burger.setAttribute('aria-expanded', 'false');
     navLinks.classList.remove('open');
   }));
+
+  // Hero name: wrap each letter so they can rise in one by one
+  const heroName = document.querySelector('.hero-title .name');
+  if (!reduceMotion) {
+    let n = 0;
+    heroName.innerHTML = heroName.textContent.trim().split(/\s+/).map(word =>
+      `<span class="word">${[...word].map(ch => `<span class="ch" style="--i:${n++}">${ch}</span>`).join('')}</span>`
+    ).join(' ');
+    heroName.classList.add('split');
+    heroName.setAttribute('aria-label', heroName.textContent);
+  }
+
+  // Index children so CSS can stagger them (screenshots, features, chips)
+  document.querySelectorAll('.gallery, .feat, .chips').forEach(list => {
+    [...list.children].forEach((child, i) => child.style.setProperty('--i', i));
+  });
 
   // Reveal on scroll, with stagger for siblings
   const io = new IntersectionObserver(entries => {
@@ -120,6 +143,17 @@
         stack.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 10}deg)`;
       }
     }, { passive: true });
+
+    // 3D tilt toward the pointer on the About and Skills cards
+    document.querySelectorAll('.cards-4 .card, .skill-group').forEach(card => {
+      card.classList.add('tilt');
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--ry', `${((e.clientX - r.left) / r.width - 0.5) * 10}deg`);
+        card.style.setProperty('--rx', `${-((e.clientY - r.top) / r.height - 0.5) * 10}deg`);
+      });
+      card.addEventListener('pointerleave', () => { card.style.removeProperty('--rx'); card.style.removeProperty('--ry'); });
+    });
 
     document.querySelectorAll('.glow').forEach(card => {
       card.addEventListener('pointermove', e => {

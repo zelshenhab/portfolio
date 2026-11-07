@@ -484,6 +484,66 @@ body.lang-fade main, body.lang-fade .footer { opacity: 0; filter: blur(6px); }
 .reveal.in { opacity: 1; transform: none; }
 .card.reveal.in:hover { transform: translateY(-4px); }
 
+/* ---------- Motion ---------- */
+/* Hero name: letters rise in one by one (split in script.js) */
+.hero-title .name.split { background: none; }
+.name.split .word { display: inline-block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; vertical-align: top; }
+.name.split .ch {
+  display: inline-block; background: var(--name-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: charUp 0.9s var(--ease) backwards; animation-delay: calc(var(--i) * 40ms + 0.25s);
+}
+@keyframes charUp { from { transform: translateY(110%) rotate(8deg); opacity: 0; } }
+
+/* Hero screenshots and chips arrive one after another (float keeps running) */
+.hero-visual.in .s2 { animation: shotRise 1.1s var(--ease) 0.25s backwards, float 7s ease-in-out 0s infinite; }
+.hero-visual.in .s1 { animation: shotRise 1.1s var(--ease) 0.45s backwards, float 7s ease-in-out -2s infinite; }
+.hero-visual.in .s3 { animation: shotRise 1.1s var(--ease) 0.6s backwards, float 7s ease-in-out -4s infinite; }
+.hero-visual.in .chip-code { animation: chipPop 0.8s var(--spring) 0.9s backwards, float 6s ease-in-out -1s infinite; }
+.hero-visual.in .chip-app { animation: chipPop 0.8s var(--spring) 1.05s backwards, float 6s ease-in-out -3s infinite; }
+.hero-visual.in .chip-app-2 { animation: chipPop 0.8s var(--spring) 1.2s backwards, float 6s ease-in-out -5s infinite; }
+@keyframes shotRise { from { opacity: 0; scale: 0.82; } }
+@keyframes chipPop { from { opacity: 0; scale: 0.5; } }
+
+/* Section headings wipe up like a curtain */
+.section-head.reveal h2 { clip-path: inset(0 0 100% 0); transform: translateY(26px); transition: clip-path 1.1s var(--ease) 0.12s, transform 1.1s var(--ease) 0.12s; }
+.section-head.reveal.in h2 { clip-path: inset(-10% -5% -20% -5%); transform: none; }
+.section-head.reveal .eyebrow { opacity: 0; transform: translateX(-18px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.section-head.reveal.in .eyebrow { opacity: 1; transform: none; }
+
+/* Timeline draws itself while scrolling; dots light up when reached */
+.timeline::after {
+  content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 2px; border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--accent2)); box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.55);
+  transform-origin: top; transform: scaleY(var(--tl, 0));
+}
+.tl-dot { z-index: 1; transition: background 0.4s, transform 0.5s var(--spring), box-shadow 0.4s; }
+.tl-item.lit .tl-dot { background: var(--accent); transform: scale(1.15); box-shadow: 0 0 0 5px rgba(var(--accent-rgb), 0.16), 0 0 18px rgba(var(--accent-rgb), 0.6); }
+.tl-item.lit:first-child .tl-dot { background: var(--ok); }
+.tl-item.lit .tl-dot.edu { background: var(--accent2); }
+
+/* Projects: icon pops, screenshots slide in, features follow */
+.project { --from: 50px; }
+.project.flip { --from: -50px; }
+.project.in .app-icon { animation: iconPop 0.8s var(--spring) 0.2s backwards; }
+.project.in .gallery > img { animation: shotIn 0.9s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 100ms + 0.25s); }
+.project.in .feat li { animation: fadeUp 0.7s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 80ms + 0.35s); }
+@keyframes iconPop { from { opacity: 0; transform: scale(0.4) rotate(-14deg); } }
+@keyframes shotIn { from { opacity: 0; transform: translateX(var(--from)) scale(0.94); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } }
+
+/* Portrait: main photo wipes up, graduation photo flies in */
+.portrait.in .portrait-frame { animation: frameIn 1.2s var(--ease) 0.15s backwards; }
+.portrait.in .portrait-grad { animation: gradIn 1s var(--spring) 0.75s backwards; }
+@keyframes frameIn { from { clip-path: inset(100% 0 0 0 round 30px); } to { clip-path: inset(0 0 0 0 round 30px); } }
+@keyframes gradIn { from { opacity: 0; transform: rotate(-22deg) translate(-36px, 36px) scale(0.8); } }
+
+/* Skill chips pop in */
+.skill-group.in .chips span { animation: chipIn 0.55s var(--spring) backwards; animation-delay: calc(var(--i, 0) * 45ms + 0.2s); }
+@keyframes chipIn { from { opacity: 0; transform: scale(0.6) translateY(8px); } }
+
+/* 3D tilt toward the pointer (class added in script.js on mouse devices) */
+.card.tilt.reveal.in:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px); transition: transform 0.2s ease-out, border-color 0.4s; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .hero { grid-template-columns: minmax(0, 1fr); padding-top: 120px; }

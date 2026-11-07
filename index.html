@@ -19,6 +19,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    // Temporary palette preview: ?theme=lime|crimson|paper (default is ember)
+    (() => {
+      const t = new URLSearchParams(location.search).get('theme');
+      if (['lime', 'crimson', 'paper'].includes(t)) document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>

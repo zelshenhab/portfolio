@@ -206,5 +206,33 @@
     } catch { location.href = `mailto:${copyBtn.dataset.email}`; }
   });
 
+  // Temporary palette picker, shown only with ?pick or ?theme in the URL
+  const params = new URLSearchParams(location.search);
+  if (params.has('pick') || params.has('theme')) {
+    const themes = [['ember', 'Ember', '#ff5a2c'], ['lime', 'Lime', '#c6f03c'], ['crimson', 'Crimson', '#ff3b47'], ['paper', 'Paper', '#2f4bff']];
+    const picker = document.createElement('div');
+    picker.className = 'theme-picker';
+    picker.setAttribute('role', 'group');
+    picker.setAttribute('aria-label', 'Colour theme');
+    const current = () => document.documentElement.dataset.theme || 'ember';
+    themes.forEach(([id, name, color]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = `<i style="background:${color}"></i>${name}`;
+      b.setAttribute('aria-pressed', id === current());
+      b.addEventListener('click', () => {
+        if (id === 'ember') delete document.documentElement.dataset.theme;
+        else document.documentElement.dataset.theme = id;
+        picker.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+        const url = new URL(location.href);
+        url.searchParams.set('pick', '');
+        url.searchParams.set('theme', id);
+        history.replaceState(null, '', url);
+      });
+      picker.appendChild(b);
+    });
+    document.body.appendChild(picker);
+  }
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

@@ -413,22 +413,8 @@ html[lang="ru"] .card h3, html[lang="ru"] .skill-group h4 { font-size: 16.5px; }
     var(--bg2);
 }
 .contact-box .lead { margin-left: auto; margin-right: auto; }
-.mail-big { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 40px; max-width: 100%; }
-.mail-label { font-family: var(--font-mono); font-size: 15px; color: var(--accent); letter-spacing: 0.5px; }
-.mail-addr {
-  position: relative; display: inline-flex; align-items: center; gap: 0.25em; max-width: 100%;
-  font-family: 'Syne', system-ui, sans-serif; font-weight: 800; font-size: clamp(22px, 3.6vw, 46px); letter-spacing: -0.02em; line-height: 1.15;
-  padding-bottom: 6px; transition: color 0.3s;
-}
-.mail-addr::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 3px;
-  background: var(--accent); transform: scaleX(0.18); transform-origin: left; transition: transform 0.6s var(--ease);
-}
-.mail-arrow { width: 0.8em; height: 0.8em; flex-shrink: 0; fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.45s var(--spring); }
-.mail-big:hover .mail-addr { color: var(--accent); }
-.mail-big:hover .mail-addr::after { transform: scaleX(1); }
-.mail-big:hover .mail-arrow { transform: translate(4px, -4px) rotate(45deg); }
-.contact-main { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.mail-pre { font-family: var(--font-mono); font-weight: 500; font-size: 13px; opacity: 0.7; margin-right: 6px; }
+.contact-main { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
 .btn.copied { border-color: var(--ok); color: var(--ok); }
 .socials { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; text-align: left; }
 .social {
@@ -573,10 +559,7 @@ body.lang-fade main, body.lang-fade .footer { opacity: 0; filter: blur(6px); }
   .gallery img { width: 170px; border-radius: 18px; }
   .gallery img:only-child { width: 240px; }
   .contact-box { padding: 56px 20px; border-radius: 28px; }
-  .mail-addr { font-size: clamp(18px, 5.4vw, 26px); flex-direction: column; text-align: center; gap: 2px; }
-  .mail-addr > span { display: flex; flex-direction: column; align-items: center; }
-  .mail-arrow { display: none; }
-  .mail-addr::after { left: 20%; right: 20%; }
+  .mail-pre { display: none; }
   .contact-main .btn { width: 100%; justify-content: center; }
   .socials { grid-template-columns: 1fr; }
   .footer { flex-wrap: wrap; }
